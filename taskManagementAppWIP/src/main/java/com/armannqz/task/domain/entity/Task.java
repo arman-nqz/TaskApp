@@ -37,4 +37,18 @@ public class Task {
 
     @Column(name = "updated", nullable = false)
     private Instant updated;
+
+    public Task() {
+    }
+
+    public Task(LocalDate dueDate, UUID id, String title, String description, taskStatus status, taskPriority priority, Instant created, Instant updated) {
+        this.dueDate = dueDate;
+        this.id = id;
+        this.title = title;
+        this.description = description;
+        this.status = status;
+        this.priority = priority;
+        this.created = created;
+        this.updated = updated;
+    }
 }
