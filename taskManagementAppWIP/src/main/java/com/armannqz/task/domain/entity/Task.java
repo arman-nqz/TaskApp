@@ -27,11 +27,11 @@ public class Task {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "status", nullable = false)
-    private taskStatus status;
+    private TaskStatus status;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "priority", nullable = false)
-    private taskPriority priority;
+    private TaskPriority priority;
 
     @Column(name = "created", updatable = false, nullable = false)
     private Instant created;
@@ -42,7 +42,7 @@ public class Task {
     public Task() {
     }
 
-    public Task(LocalDate dueDate, UUID id, String title, String description, taskStatus status, taskPriority priority, Instant created, Instant updated) {
+    public Task(LocalDate dueDate, UUID id, String title, String description, TaskStatus status, TaskPriority priority, Instant created, Instant updated) {
         this.dueDate = dueDate;
         this.id = id;
         this.title = title;
@@ -85,19 +85,19 @@ public class Task {
         this.dueDate = dueDate;
     }
 
-    public taskStatus getStatus() {
+    public TaskStatus getStatus() {
         return status;
     }
 
-    public void setStatus(taskStatus status) {
+    public void setStatus(TaskStatus status) {
         this.status = status;
     }
 
-    public taskPriority getPriority() {
+    public TaskPriority getPriority() {
         return priority;
     }
 
-    public void setPriority(taskPriority priority) {
+    public void setPriority(TaskPriority priority) {
         this.priority = priority;
     }
 

@@ -1,6 +1,6 @@
 package com.armannqz.task.domain.entity;
 
-public enum taskStatus {
+public enum TaskStatus {
     OPEN,
     COMPLETE
 }

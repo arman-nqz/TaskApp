@@ -1,6 +1,6 @@
 package com.armannqz.task.domain.entity;
 
-public enum taskPriority {
+public enum TaskPriority {
     LOW,
     Medium,
     HIGH
