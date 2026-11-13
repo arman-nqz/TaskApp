@@ -53,15 +53,14 @@ export const listTasks = async (): Promise<Task[]> => {
   });
 
   if (!response.ok) {
+    let errorMessage: string | undefined;
     try {
       const errorResponse = (await response.json()) as ApiErrorResponseDto;
-      throw new Error(errorResponse.error);
+      errorMessage = errorResponse.error;
     } catch {
-      // If JSON parsing fails, use status text as fallback
-      throw new Error(
-        `Request failed, is the backend running?: ${response.status} ${response.statusText}`,
-      );
+      errorMessage = `Request failed, is the backend running?: ${response.status} ${response.statusText}`;
     }
+    throw new Error(errorMessage);
   }
 
   const dtos = (await response.json()) as TaskResponseDto[];
@@ -88,15 +87,14 @@ export const updateTask = async (
   });
 
   if (!response.ok) {
+    let errorMessage: string | undefined;
     try {
       const errorResponse = (await response.json()) as ApiErrorResponseDto;
-      throw new Error(errorResponse.error);
+      errorMessage = errorResponse.error;
     } catch {
-      // If JSON parsing fails, use status text as fallback
-      throw new Error(
-        `Request failed, is the backend running?: ${response.status} ${response.statusText}`,
-      );
+      errorMessage = `Request failed, is the backend running?: ${response.status} ${response.statusText}`;
     }
+    throw new Error(errorMessage);
   }
 
   return todoResponseDtoToTodo((await response.json()) as TaskResponseDto);
@@ -116,14 +114,13 @@ export const deleteTask = async (todoId: string): Promise<void> => {
   });
 
   if (!response.ok) {
+    let errorMessage: string | undefined;
     try {
       const errorResponse = (await response.json()) as ApiErrorResponseDto;
-      throw new Error(errorResponse.error);
+      errorMessage = errorResponse.error;
     } catch {
-      // If JSON parsing fails, use status text as fallback
-      throw new Error(
-        `Request failed, is the backend running?: ${response.status} ${response.statusText}`,
-      );
+      errorMessage = `Request failed, is the backend running?: ${response.status} ${response.statusText}`;
     }
+    throw new Error(errorMessage);
   }
 };
